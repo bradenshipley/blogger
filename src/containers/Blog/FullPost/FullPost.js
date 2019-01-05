@@ -9,15 +9,16 @@ class FullPost extends Component {
       loadedPost: null
     }
   }
-  componentDidUpdate() {
-    if (this.props.id) {
+  componentDidMount() {
+    // console.log(this.props)
+    if (this.props.match.params.id) {
       if (
         //if there isn't already a post or the post that is currently loaded is different than the post requested
         !this.state.loadedPost ||
         (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)
       ) {
         axios
-          .get(`/posts/${this.props.id}`)
+          .get(`/posts/${this.props.match.params.id}`)
           .then(response => this.setState({ loadedPost: response.data }))
           .catch(err => console.log(err))
       }
@@ -25,7 +26,9 @@ class FullPost extends Component {
   }
 
   deletePostHandler = () => {
-    axios.delete(`/posts/${this.props.id}`).then(res => console.log(res))
+    axios
+      .delete(`/posts/${this.props.match.params.id}`)
+      .then(res => console.log(res))
   }
 
   render() {

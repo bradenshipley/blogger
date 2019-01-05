@@ -10,23 +10,23 @@ axios.defaults.headers.post["Content-Type"] = "application/json"
 
 axios.interceptors.request.use(
   request => {
-    console.log(request)
+    // console.log(request)
     //can edit request config before returning
     return request
   },
   err => {
-    console.log(err)
+    // console.log(err)
     return Promise.reject(err)
   }
 )
 axios.interceptors.response.use(
   response => {
-    console.log(response)
+    // console.log(response)
     //can edit response config before returning
     return response
   },
   err => {
-    console.log(err)
+    // console.log(err)
     return Promise.reject(err)
   }
 )

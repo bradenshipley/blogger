@@ -16,6 +16,9 @@ class NewPost extends Component {
     }
     axios.post("/posts", data).then(res => console.log(res))
   }
+  componentDidMount() {
+    // console.log(this.props)
+  }
   render() {
     return (
       <div className='NewPost'>
